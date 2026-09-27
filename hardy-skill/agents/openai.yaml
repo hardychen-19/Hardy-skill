@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hardy Skill"
+  short_description: "Hardy X 创作与运营模块"
+  default_prompt: "使用 Hardy Skill 处理我的 X 复盘、写作、封面或发布准备任务。"
