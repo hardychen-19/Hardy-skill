@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hardy X Review"
+  short_description: "复盘 X 数据与涨粉"
+  default_prompt: "复盘我的 X Analytics 数据，区分净涨粉和单帖归因，并给出一个下一步实验。"
