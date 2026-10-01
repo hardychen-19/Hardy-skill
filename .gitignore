@@ -1,4 +1,5 @@
 dist/
-*.csv
-*.json
 .DS_Store
+__pycache__/
+*.pyc
+.hardy-skills/

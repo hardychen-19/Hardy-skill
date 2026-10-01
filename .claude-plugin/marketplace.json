@@ -1,0 +1,23 @@
+{
+  "name": "hardy-skills",
+  "owner": {
+    "name": "Hardy Chen"
+  },
+  "metadata": {
+    "description": "Hardy Chen 的中文长文写作与 X 运营技能合集",
+    "version": "0.2.0"
+  },
+  "plugins": [
+    {
+      "name": "hardy-skills",
+      "description": "模块化长文写作、X 数据复盘与总入口",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./hardy-skill",
+        "./skills/hardy-x-review",
+        "./skills/hardy-x-writing"
+      ]
+    }
+  ]
+}

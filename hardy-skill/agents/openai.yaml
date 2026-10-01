@@ -1,4 +1,4 @@
 interface:
   display_name: "Hardy Skill"
-  short_description: "Hardy X 创作与运营模块"
-  default_prompt: "使用 Hardy Skill 处理我的 X 复盘、写作、封面或发布准备任务。"
+  short_description: "路由 Hardy Chen 中文长文写作与 X 数据复盘，连接已安装模块的产物"
+  default_prompt: "使用 $hardy-skill，处理我的中文长文写作或 X 数据复盘任务。"
