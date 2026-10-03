@@ -3,13 +3,13 @@
 import zipfile
 from pathlib import Path
 
-from validate import MODULES, ROOT, validate
+from validate import ILLUSTRATION_ASSETS, MODULES, ROOT, validate
 
 
 def skill_files(directory):
     for path in sorted(directory.rglob("*")):
         if path.is_file() and path.name != ".DS_Store" and "__pycache__" not in path.parts:
-            if path.name == "LICENSE" or path.suffix in {".md", ".yaml"}:
+            if path.name == "LICENSE" or path.suffix in {".md", ".yaml"} or path in ILLUSTRATION_ASSETS:
                 yield path
 
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Hardy IP 正文图解"
+  short_description: "按文章理解难点选择图解，用定稿立体 IP 辅助解释并插入 Markdown"
+  default_prompt: "使用 $hardy-x-illustrations，为这篇 Markdown 自动选择有理解价值的正文图解，使用已确认的 Hardy 立体 IP，人物保持小比例，按知识点选择结构并输出配图版。"

@@ -19,7 +19,7 @@ workspace_root/
 ├── artifacts/
 │   ├── review/          # 复盘报告与结构化结论
 │   ├── writing/         # 成稿与写作简报
-│   ├── cover/           # 封面和设计说明（未来）
+│   ├── illustrations/   # 插入配图后的 Markdown 与图片
 │   └── publish/         # 发布队列与回执（未来）
 ├── sources/             # X 导出、用户素材等只读输入
 ├── workflows/           # 工作流定义和每次运行记录
@@ -64,9 +64,10 @@ workspace_root/
 | `x.analytics.overview.v1` | 数据导入步骤 | `hardy-x-review` | 账号每日数据 |
 | `x.analytics.content.v1` | 数据导入步骤 | `hardy-x-review` | 单帖累计数据 |
 | `x.review.v1` | `hardy-x-review` | `hardy-x-writing` 或人工查看 | 净涨粉、内容结论、一个实验 |
-| `x.draft.v1` | `hardy-x-writing` | 人工审稿；未来配图与发布模块 | Markdown 正文与同名清单；ready 不等于批准发布 |
+| `x.draft.v1` | `hardy-x-writing` | `hardy-x-illustrations` 或人工审稿 | Markdown 正文与同名清单；ready 不等于批准发布 |
+| `x.illustrated-draft.v1` | `hardy-x-illustrations` | 人工审稿；未来发布模块 | 插入正文配图链接的 Markdown、图片文件和同名清单；封面可选；ready 不等于批准发布 |
 
-写作模块已加入 `x.draft.v1`；未来模块完成后再加入 `x.cover.v1`、`x.publish_queue.v1`、`x.published.v1`。未发布的类型只在这里表示规划，不能当成已实现能力。
+写作模块已加入 `x.draft.v1`，配图模块已加入 `x.illustrated-draft.v1`；未来模块完成后再加入 `x.publish_queue.v1`、`x.published.v1`。未发布的类型只在这里表示规划，不能当成已实现能力。
 
 复盘产物 `x.review.v1` 至少包含：`account`、`captured_at`、`period`、`overview_net_follows`、`content_attributed_follows`、`evidence`、`experiment`、`limitations`。两个关注字段必须分开。来源 CSV 若缺少 Overview，`overview_net_follows` 设为 `null`，不能用内容归因值补位。
 
@@ -93,9 +94,9 @@ workspace_root/
 }
 ```
 
-这只是工作流定义格式；实际运行还需要总入口或宿主 Agent 读取文件、检查输入和依赖，再调用安装的技能。上述示例只有复盘步骤。当前复盘与写作模块已提供协议约定，宿主 Agent 可以按兼容清单衔接；封面和发布尚未实现，不能宣称完整链路已跑通。
+这只是工作流定义格式；实际运行还需要总入口或宿主 Agent 读取文件、检查输入和依赖，再调用安装的技能。上述示例只有复盘步骤。复盘、写作与配图模块已提供协议约定；发布尚未实现，不能宣称完整发布链已跑通。
 
-当前可编排：`X 数据导入 → 复盘 → 人工查看`，或 `ready 复盘 → 写作草稿 → 人工审稿`。直接对话展示不建立产物工作区。未来可以增加 `复盘 → 写作 → 封面 → 审稿 → 发布 → 复盘`，也可以只运行 `写作 → 封面`；跳过某一步时必须仍满足下一步的输入类型。
+当前可编排：`X 数据导入 → 复盘 → 人工查看`、`ready 复盘 → 写作草稿 → 人工审稿`，或 `ready x.draft.v1 → 自动配图 → 人工审稿`。直接对话展示不建立产物工作区。未来可以增加 `复盘 → 写作 → 配图 → 审稿 → 发布 → 复盘`；跳过某一步时必须仍满足下一步的输入类型。
 
 同一份产物可被多个技能消费，例如一份复盘同时给写作和人工看。总入口按产物 ID 追踪血缘，避免“拿到了一个文件，但不知道是哪次运行的”。
 
@@ -108,3 +109,9 @@ workspace_root/
 `x.draft.v1` 正文是 Markdown，位于固定 `artifacts/writing/`，使用 UTC 时间及唯一 ID 命名，每个版本新建文件。同名 `.manifest.json` 使用前述通用字段，另含 `title`、`language`、`article_type`、`content_format: markdown`。`evidence_status` 为 `verified`、`partial` 或 `unverified`，以实际检查为准；`review_required` 默认 true。ready 表示草稿可审阅，不代表已批准发布；关键事实未解决导致成稿不完整时用 draft。用户明确批准该版本才能改为 approved，后续改写是新版本，需要重新确认。
 
 写作可以不依赖复盘。消费 `x.review.v1` 时先验证清单类型、状态和来源，不把实验建议写成用户已经做过的经历。只有实际存在的输入才登记，用户私有资料和凭据不进入公开仓库。仅要对话中的提纲、示例或正文时不落盘；用户要求保存或模块协作时才执行上述协议。
+
+## 7. 配图产物 `x.illustrated-draft.v1`
+
+`hardy-x-illustrations` 消费状态为 `ready` 或 `approved` 的 `x.draft.v1`，以及用户直接提供的 Markdown。工作区模式将成稿副本、生成提示词和图片写入 `artifacts/illustrations/`，原稿不覆盖；清单 `type` 为 `x.illustrated-draft.v1`，`producer` 为 `hardy-x-illustrations`，`status` 为 `ready`、`review_required` 为 `true`。清单追加 `source_draft_id`（若输入来自工作区草稿）、`cover_path`、`cover_prompt_path`、`images` 和 `image_generation_tool`；只处理正文时 `cover_path` 与 `cover_prompt_path` 都设为 `null`，不能用旧封面补位。`images` 每项含相对图片路径、提示词路径、替代文本、插入锚点、用途和实际像素尺寸。`path` 指向插入图片引用的 Markdown 文件，`inputs` 只列工作区内实际读取的草稿或素材。
+
+用户直接指定工作区之外的普通输出目录时，按其指定路径交付 Markdown 副本与图片，不擅自修改固定工作区配置，也不把工作区外路径追加到 `index.jsonl`。成图不继承输入草稿的 `approved` 状态；插图修改后仍需人工检查。
