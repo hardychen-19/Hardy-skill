@@ -17,7 +17,7 @@ ILLUSTRATION_ASSETS = tuple(
 # User-selected reference images must remain available in standalone packages.
 ILLUSTRATION_ASSETS += tuple(
     ROOT / "skills/hardy-x-illustrations/references/examples" / name
-    for name in ("01-ai-writing.png", "02-knowledge-library.png", "03-automation.png")
+    for name in ("01-ai-writing.png", "02-knowledge-library.png", "03-automation.png", "04-ending-follow.png")
 )
 
 def validate():

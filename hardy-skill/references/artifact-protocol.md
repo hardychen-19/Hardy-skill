@@ -65,7 +65,7 @@ workspace_root/
 | `x.analytics.content.v1` | 数据导入步骤 | `hardy-x-review` | 单帖累计数据 |
 | `x.review.v1` | `hardy-x-review` | `hardy-x-writing` 或人工查看 | 净涨粉、内容结论、一个实验 |
 | `x.draft.v1` | `hardy-x-writing` | `hardy-x-illustrations` 或人工审稿 | Markdown 正文与同名清单；ready 不等于批准发布 |
-| `x.illustrated-draft.v1` | `hardy-x-illustrations` | 人工审稿；未来发布模块 | 插入正文配图链接的 Markdown、图片文件和同名清单；封面可选；ready 不等于批准发布 |
+| `x.illustrated-draft.v1` | `hardy-x-illustrations` | 人工审稿；未来发布模块 | 插入正文配图链接的 Markdown、图片文件和同名清单；文末关注图按要求处理；ready 不等于批准发布 |
 
 写作模块已加入 `x.draft.v1`，配图模块已加入 `x.illustrated-draft.v1`；未来模块完成后再加入 `x.publish_queue.v1`、`x.published.v1`。未发布的类型只在这里表示规划，不能当成已实现能力。
 
@@ -112,6 +112,6 @@ workspace_root/
 
 ## 7. 配图产物 `x.illustrated-draft.v1`
 
-`hardy-x-illustrations` 消费状态为 `ready` 或 `approved` 的 `x.draft.v1`，以及用户直接提供的 Markdown。工作区模式将成稿副本、生成提示词和图片写入 `artifacts/illustrations/`，原稿不覆盖；清单 `type` 为 `x.illustrated-draft.v1`，`producer` 为 `hardy-x-illustrations`，`status` 为 `ready`、`review_required` 为 `true`。清单追加 `source_draft_id`（若输入来自工作区草稿）、`cover_path`、`cover_prompt_path`、`images` 和 `image_generation_tool`；只处理正文时 `cover_path` 与 `cover_prompt_path` 都设为 `null`，不能用旧封面补位。`images` 每项含相对图片路径、提示词路径、替代文本、插入锚点、用途和实际像素尺寸。`path` 指向插入图片引用的 Markdown 文件，`inputs` 只列工作区内实际读取的草稿或素材。
+`hardy-x-illustrations` 消费状态为 `ready` 或 `approved` 的 `x.draft.v1`，以及用户直接提供的 Markdown。工作区模式将成稿副本、生成提示词和图片写入 `artifacts/illustrations/`，原稿不覆盖；清单 `type` 为 `x.illustrated-draft.v1`，`producer` 为 `hardy-x-illustrations`，`status` 为 `ready`、`review_required` 为 `true`。清单追加 `source_draft_id`（若输入来自工作区草稿）、`cover_path`、`cover_prompt_path`、`images` 和 `image_generation_tool`；当前模块不生成封面，`cover_path` 与 `cover_prompt_path` 都设为 `null`，不能用旧封面或文末关注图补位。文末关注图属于 `images`，用途为 `ending`，放在原文结尾之后；不新增产物类型或顶层字段。`images` 每项含相对图片路径、提示词路径、替代文本、插入锚点、用途和实际像素尺寸。`path` 指向插入图片引用的 Markdown 文件，`inputs` 只列工作区内实际读取的草稿或素材。
 
 用户直接指定工作区之外的普通输出目录时，按其指定路径交付 Markdown 副本与图片，不擅自修改固定工作区配置，也不把工作区外路径追加到 `index.jsonl`。成图不继承输入草稿的 `approved` 状态；插图修改后仍需人工检查。
