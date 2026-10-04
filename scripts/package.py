@@ -40,7 +40,7 @@ def main():
         bundle.extend(files)
     bundle.extend(ROOT / name for name in ("README.md", "RELEASE.md", "VERSION", "LICENSE", ".claude-plugin/marketplace.json"))
     bundle.extend(ROOT / "scripts" / name for name in ("validate.py", "package.py"))
-    write_archive(output / f"Hardy-skill-{version}.zip", bundle, ROOT)
+    write_archive(output / f"Hardy-skill-bundle-{version}.zip", bundle, ROOT)
 
 
 if __name__ == "__main__":

@@ -83,7 +83,7 @@ python3 scripts/validate.py
 python3 scripts/package.py
 ```
 
-只使用 Python 标准库。打包脚本生成各模块独立 ZIP 和全集 ZIP；只额外收录配图模块明确列出的六张生成图（定稿 IP、正文样稿、三张案例参考及文末关注图示例）；不收录原始照片、其他用户素材、账号数据或工作区。安装包见 [GitHub Releases](https://github.com/hardychen-19/Hardy-skill/releases)。
+只使用 Python 标准库。打包脚本生成各模块独立 ZIP 和全集 ZIP；只额外收录配图模块明确列出的六张生成图（定稿 IP、正文样稿、三张案例参考及文末关注图示例）；不收录原始照片、其他用户素材、账号数据或工作区。全集包使用 `Hardy-skill-bundle-<版本>.zip`，总入口独立包使用 `hardy-skill-<版本>.zip`，避免大小写不敏感文件系统中的重名覆盖。安装包见 [GitHub Releases](https://github.com/hardychen-19/Hardy-skill/releases)。
 
 ## 来源与许可
 
