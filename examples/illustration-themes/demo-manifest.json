@@ -1,0 +1,116 @@
+{
+  "generated_by": "built-in image_gen",
+  "character": "../../skills/hardy-x-illustrations/assets/themes/photo-character-demo.png",
+  "raw_photo_in_repository": false,
+  "images": [
+    {
+      "theme": "soft-3d",
+      "evidence": "source.md 第二段",
+      "anchor": "AI 可以先起草，但涉及事实、数字和来源的内容需要人核实。",
+      "knowledge_point": "起草、人工核实与反馈修改构成推荐协作回路；修改后仍需检查",
+      "diagram": "反馈回路",
+      "character_action": "用放大镜核对依据与文稿",
+      "labels": [
+        "AI 起草",
+        "人工核实",
+        "反馈修改",
+        "修改意见",
+        "再次检查"
+      ],
+      "misreading_limit": "不能把推荐方式画成保证正确的技术机制",
+      "image": "../../skills/hardy-x-illustrations/assets/themes/soft-3d.png",
+      "prompt": "prompts/soft-3d.md",
+      "alt": "soft-3d 风格的 AI 起草、人工核实与反馈修改循环示意",
+      "status": "ready",
+      "user_approved": false,
+      "width": 1672,
+      "height": 941,
+      "sha256": "a01d9cf40c9ccfbb7a5bb3b1f8066b86ef771411a4db307adf124bd2689a71cf",
+      "qa": "已查看成图：标签清晰，主流程与两条反馈方向正确，角色保留发型、眼镜与衣着。手绘、水彩、深色版人物占比约 20%–25%，高于默认起点；作为角色风格预览保留，正式正文仍按信息主次缩小。"
+    },
+    {
+      "theme": "ink-notes",
+      "evidence": "source.md 第二段",
+      "anchor": "AI 可以先起草，但涉及事实、数字和来源的内容需要人核实。",
+      "knowledge_point": "起草、人工核实与反馈修改构成推荐协作回路；修改后仍需检查",
+      "diagram": "反馈回路",
+      "character_action": "用放大镜核对依据与文稿",
+      "labels": [
+        "AI 起草",
+        "人工核实",
+        "反馈修改",
+        "修改意见",
+        "再次检查"
+      ],
+      "misreading_limit": "不能把推荐方式画成保证正确的技术机制",
+      "image": "../../skills/hardy-x-illustrations/assets/themes/ink-notes.png",
+      "prompt": "prompts/ink-notes.md",
+      "alt": "ink-notes 风格的 AI 起草、人工核实与反馈修改循环示意",
+      "status": "ready",
+      "user_approved": false,
+      "width": 1672,
+      "height": 941,
+      "sha256": "1d2079cddbf8985767d624577b95fb5e73df85386838948de2876827119bc9ef",
+      "qa": "已查看成图：标签清晰，主流程与两条反馈方向正确，角色保留发型、眼镜与衣着。手绘、水彩、深色版人物占比约 20%–25%，高于默认起点；作为角色风格预览保留，正式正文仍按信息主次缩小。"
+    },
+    {
+      "theme": "watercolor",
+      "evidence": "source.md 第二段",
+      "anchor": "AI 可以先起草，但涉及事实、数字和来源的内容需要人核实。",
+      "knowledge_point": "起草、人工核实与反馈修改构成推荐协作回路；修改后仍需检查",
+      "diagram": "反馈回路",
+      "character_action": "用放大镜核对依据与文稿",
+      "labels": [
+        "AI 起草",
+        "人工核实",
+        "反馈修改",
+        "修改意见",
+        "再次检查"
+      ],
+      "misreading_limit": "不能把推荐方式画成保证正确的技术机制",
+      "image": "../../skills/hardy-x-illustrations/assets/themes/watercolor.png",
+      "prompt": "prompts/watercolor.md",
+      "alt": "watercolor 风格的 AI 起草、人工核实与反馈修改循环示意",
+      "status": "ready",
+      "user_approved": false,
+      "width": 1672,
+      "height": 941,
+      "sha256": "52600885033ab763416f0a58e67a44a4c7fe6004bc038220b3829fb5c543e2e6",
+      "qa": "已查看成图：标签清晰，主流程与两条反馈方向正确，角色保留发型、眼镜与衣着。手绘、水彩、深色版人物占比约 20%–25%，高于默认起点；作为角色风格预览保留，正式正文仍按信息主次缩小。"
+    },
+    {
+      "theme": "midnight-tech",
+      "evidence": "source.md 第二段",
+      "anchor": "AI 可以先起草，但涉及事实、数字和来源的内容需要人核实。",
+      "knowledge_point": "起草、人工核实与反馈修改构成推荐协作回路；修改后仍需检查",
+      "diagram": "反馈回路",
+      "character_action": "用放大镜核对依据与文稿",
+      "labels": [
+        "AI 起草",
+        "人工核实",
+        "反馈修改",
+        "修改意见",
+        "再次检查"
+      ],
+      "misreading_limit": "不能把推荐方式画成保证正确的技术机制",
+      "image": "../../skills/hardy-x-illustrations/assets/themes/midnight-tech.png",
+      "prompt": "prompts/midnight-tech.md",
+      "alt": "midnight-tech 风格的 AI 起草、人工核实与反馈修改循环示意",
+      "status": "ready",
+      "user_approved": false,
+      "width": 1672,
+      "height": 941,
+      "sha256": "ac4add3c43a13ae7c02e565daa5499a109f9ebcdef9244ec63399f507a882829",
+      "qa": "已查看成图：标签清晰，主流程与两条反馈方向正确，角色保留发型、眼镜与衣着。手绘、水彩、深色版人物占比约 20%–25%，高于默认起点；作为角色风格预览保留，正式正文仍按信息主次缩小。"
+    }
+  ],
+  "character_initialization": {
+    "source": "作者本次提供的个人照片；原照片未上传",
+    "prompt": "prompts/character-initialization.md",
+    "iterations": 2,
+    "status": "ready",
+    "user_approved": false,
+    "qa": "第一轮偏写实，第二轮修正为软圆哑光立体；身份、深色衣着、完整人物与可见手部已检查。"
+  },
+  "photo_to_character_and_reuse_test": "首次已实际用照片生成角色；save 后 resolve 校验文件与哈希，后续四套主题均复用同一角色。"
+}

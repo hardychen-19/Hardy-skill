@@ -20,6 +20,12 @@ ILLUSTRATION_ASSETS += tuple(
     for name in ("01-ai-writing.png", "02-knowledge-library.png", "03-automation.png", "04-ending-follow.png")
 )
 
+# Theme previews and the generated photo-initialization example travel with the skill.
+ILLUSTRATION_ASSETS += tuple(
+    ROOT / "skills/hardy-x-illustrations/assets/themes" / name
+    for name in ("soft-3d.png", "ink-notes.png", "watercolor.png", "midnight-tech.png", "photo-character-demo.png")
+)
+
 def validate():
     version = (ROOT / "VERSION").read_text().strip()
     assert re.fullmatch(r"\d+\.\d+\.\d+", version), "Invalid release version"
@@ -61,8 +67,23 @@ def validate():
         assert header[12:16] == b"IHDR", f"Missing image header: {asset.name}"
         width, height = struct.unpack(">II", header[16:24])
         assert width > 0 and height > 0, f"Invalid dimensions: {asset.name}"
-        if asset.name.startswith("body-diagram") or "examples" in asset.parts:
+        if asset.name.startswith("body-diagram") or "examples" in asset.parts or ("themes" in asset.parts and asset.name != "photo-character-demo.png"):
             assert abs(width / height - 16 / 9) < 0.01, f"Body reference must be 16:9: {asset.name}"
+    profile_helper = ROOT / "skills/hardy-x-illustrations/scripts/character_profile.py"
+    assert profile_helper.is_file(), "Missing personal character helper"
+    manifest_path = ROOT / "examples/illustration-themes/demo-manifest.json"
+    manifest = json.loads(manifest_path.read_text())
+    assert {entry["theme"] for entry in manifest["images"]} == {"soft-3d", "ink-notes", "watercolor", "midnight-tech"}
+    import hashlib
+    for entry in manifest["images"]:
+        image = (manifest_path.parent / entry["image"]).resolve()
+        prompt = (manifest_path.parent / entry["prompt"]).resolve()
+        assert image.is_relative_to(ROOT) and prompt.is_relative_to(ROOT)
+        assert image.is_file() and prompt.is_file(), "Missing generated preview or prompt"
+        data = image.read_bytes()
+        assert hashlib.sha256(data).hexdigest() == entry["sha256"], "Demo checksum mismatch"
+        assert struct.unpack(">II", data[16:24]) == (entry["width"], entry["height"]), "Demo dimensions differ"
+        assert entry["status"] == "ready" and not entry["user_approved"], "Generated examples must not imply user approval"
     registry = json.loads((ROOT / ".claude-plugin/marketplace.json").read_text())
     assert registry["metadata"]["version"] == version, "Plugin/release version mismatch"
     assert len(registry["plugins"]) == 1, "Expected a single collection plugin"

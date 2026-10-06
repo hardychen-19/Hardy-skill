@@ -1,6 +1,30 @@
 # Hardy-skill
 
-Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力是独立的 Agent Skill，可单独安装，也可安装整个合集。当前版本 **0.4.2**。
+Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力是独立的 Agent Skill，可单独安装，也可安装整个合集。当前版本 **0.5.0**。
+
+## 上传自己的照片，选一套配图画风
+
+给 Codex 一张清晰个人照片，`hardy-x-illustrations` 会生成并保存你的专属角色；以后为文章配图直接复用。默认沿用 Hardy 的柔和立体正文画风，也可以选手绘笔记、清淡水彩或深色科技。照片决定身份，文章决定知识关系，主题决定画风。
+
+**[看四套实际预览与可复制提示词 →](examples/illustration-themes/README.md)**
+
+| 柔和立体 | 手绘笔记 |
+| --- | --- |
+| ![柔和立体预览](skills/hardy-x-illustrations/assets/themes/soft-3d.png) | ![手绘笔记预览](skills/hardy-x-illustrations/assets/themes/ink-notes.png) |
+
+| 清淡水彩 | 深色科技 |
+| --- | --- |
+| ![清淡水彩预览](skills/hardy-x-illustrations/assets/themes/watercolor.png) | ![深色科技预览](skills/hardy-x-illustrations/assets/themes/midnight-tech.png) |
+
+先安装配图模块，然后上传照片并说：
+
+```text
+使用 $hardy-x-illustrations，根据这张照片建立并保存我的角色。
+主题选“柔和立体”，为下面正文生成一张解释图预览。
+【粘贴正文】
+```
+
+只上传照片时先交付角色；已有角色时不用再传照片。实际生成依赖当前 Codex 会话的图像工具，Skill 不内置 API。
 
 ## 已提供的模块
 
@@ -9,9 +33,9 @@ Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力
 | `hardy-skill/` | 总入口，识别需求并路由实际安装的模块 |
 | `skills/hardy-x-writing/` | Hardy Chen 的中文长文写作、提纲、续写、改写与审校，重点支持 X 长文 |
 | `skills/hardy-x-review/` | X Analytics 数据复盘，区分账号净涨粉与单帖归因关注 |
-| `skills/hardy-x-illustrations/` | 按文章选择认知节点，生成正文解释图、保留真实截图并插入成稿，完整文章附文末关注图；暂不生成封面 |
+| `skills/hardy-x-illustrations/` | 从个人照片建立角色，四套主题任选，按文章选择认知节点，生成正文解释图、保留真实截图并插入成稿，完整文章附文末关注图；暂不生成封面 |
 
-写作模块融合卡兹克的叙事推进、Miles 文风说明中的具体解释，以及宝玉的标题与编辑方法。当前默认表达参考 Roland.W：从具体困惑进入，用追问、明确判断和具体后果展开，保留作者原话与取舍。方法见[自然表达与作者在场](skills/hardy-x-writing/references/natural-expression.md)。文章类型改变结构，作者身份仍为 Hardy Chen。教程写到能操作和验证，故事带读者走过真实发现；不编造经历，不为了悬念修改数字，不强制口语词频或文化升华，也不承诺通过 AI 检测。该表达更新已进入 main；现有 v0.4.2 下载包不包含此次更新，使用时从源码安装。
+写作模块融合卡兹克的叙事推进、Miles 文风说明中的具体解释，以及宝玉的标题与编辑方法。当前默认表达参考 Roland.W：从具体困惑进入，用追问、明确判断和具体后果展开，保留作者原话与取舍。方法见[自然表达与作者在场](skills/hardy-x-writing/references/natural-expression.md)。文章类型改变结构，作者身份仍为 Hardy Chen。教程写到能操作和验证，故事带读者走过真实发现；不编造经历，不为了悬念修改数字，不强制口语词频或文化升华，也不承诺通过 AI 检测。该表达更新已进入本次 0.5.0 源码与下载包。
 
 这是指令型技能合集，效果依赖宿主模型、工具和素材。没有内置账号登录器、自动发布器、确定性写作引擎或通用工作流执行程序。模块协议可供宿主 Agent 编排，尚未验证完整发布链。
 
@@ -29,9 +53,13 @@ Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力
 
 ## 正文配图
 
-默认采用已认可的 Hardy 哑光立体 IP 与编辑图解，人物小比例辅助、知识关系为主体。按全文理解难点选择图型与数量，保留已有准确截图；只试一张时不批量配图。完整交付保留原稿，输出图片、提示词、清单与正文配图版 Markdown，默认在结尾附一张“关注我 · 往期优质长文 · 主页查看”的同风格 IP 图。用户可修改文案或取消；单张预览不附加。当前不提供封面生成。
+默认柔和立体主题沿用 Hardy 正文图解的材质、留白与主次。首次从个人照片建立角色档案，后续复用；原作者人物只作为示例，不替换新用户身份。角色与身份说明保存在个人配置区（默认 `~/.config/hardy-skill/illustrations/`；Windows 使用 APPDATA），可用随包脚本检查并恢复引用，不写入技能安装目录。
 
-配图目录包含已确认的角色生成图、正文样稿和三张用户选定的物件演示参考，独立安装时无需再找私人角色文件。案例索引按需引导反馈回路、分类检索和条件分支；样稿只校准材质、主次和可读性，不把每篇文章固定成三栏。其他作者可以指定自己的已确认参考。原始照片、私人知识库和本地运行清单不在安装包中。
+完整文章按理解难点选择图型与数量，保留准确截图，输出图片、提示词、清单和配图版 Markdown。默认结尾附一张同主题关注图，用户可修改文案或取消；单张预览不附加。当前不生成封面。
+
+[主题选择与独立包内预览](skills/hardy-x-illustrations/references/themes.md) · [照片初始化与复用规则](skills/hardy-x-illustrations/references/character.md)
+
+示例、个人身份和原始照片分别管理。安装包只收录仓库明确列出的生成预览、参考图、规则和档案辅助脚本，不收录用户原始照片、个人配置与运行文件。主题可以切换，人物身份保留，成图仍需检查。
 
 ## 安装
 
@@ -83,7 +111,7 @@ python3 scripts/validate.py
 python3 scripts/package.py
 ```
 
-只使用 Python 标准库。打包脚本生成各模块独立 ZIP 和全集 ZIP；只额外收录配图模块明确列出的六张生成图（定稿 IP、正文样稿、三张案例参考及文末关注图示例）；不收录原始照片、其他用户素材、账号数据或工作区。全集包使用 `Hardy-skill-bundle-<版本>.zip`，总入口独立包使用 `hardy-skill-<版本>.zip`，避免大小写不敏感文件系统中的重名覆盖。安装包见 [GitHub Releases](https://github.com/hardychen-19/Hardy-skill/releases)。
+只使用 Python 标准库。打包脚本生成各模块独立 ZIP 和全集 ZIP；只收录配图模块明确列出的生成图（原有六张参考图、四张主题预览及照片生成角色示例）、档案辅助脚本和主题规则；不收录原始照片、其他用户素材、账号数据或工作区。全集包使用 `Hardy-skill-bundle-<版本>.zip`，总入口独立包使用 `hardy-skill-<版本>.zip`，避免大小写不敏感文件系统中的重名覆盖。安装包见 [GitHub Releases](https://github.com/hardychen-19/Hardy-skill/releases)。
 
 ## 来源与许可
 

@@ -9,7 +9,7 @@ from validate import ILLUSTRATION_ASSETS, MODULES, ROOT, validate
 def skill_files(directory):
     for path in sorted(directory.rglob("*")):
         if path.is_file() and path.name != ".DS_Store" and "__pycache__" not in path.parts:
-            if path.name == "LICENSE" or path.suffix in {".md", ".yaml"} or path in ILLUSTRATION_ASSETS:
+            if path.name == "LICENSE" or path.suffix in {".md", ".yaml"} or path in ILLUSTRATION_ASSETS or path == ROOT / "skills/hardy-x-illustrations/scripts/character_profile.py":
                 yield path
 
 
@@ -39,6 +39,7 @@ def main():
         write_archive(output / f"{directory.name}-{version}.zip", files, directory.parent)
         bundle.extend(files)
     bundle.extend(ROOT / name for name in ("README.md", "RELEASE.md", "VERSION", "LICENSE", ".claude-plugin/marketplace.json"))
+    bundle.extend(path for path in (ROOT / "examples/illustration-themes").rglob("*") if path.is_file() and path.suffix in {".md", ".json"})
     bundle.extend(ROOT / "scripts" / name for name in ("validate.py", "package.py"))
     write_archive(output / f"Hardy-skill-bundle-{version}.zip", bundle, ROOT)
 

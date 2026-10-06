@@ -1,0 +1,14 @@
+# 实际生成提示词
+
+Use case: infographic-diagram. Generate one standalone 16:9 editorial article illustration, wide landscape 1536x864.
+Source text: AI 可以先起草，但涉及事实、数字和来源的内容需要人核实。核实后把修改意见交给 AI，再检查修改结果。这里是推荐的协作方式，不表示核实一次就保证正确。
+Single knowledge point: AI drafting and human verification form a revisable collaboration loop; revision needs checking again. This is a recommended method, not a guarantee of truth.
+Knowledge objects: left a rounded drafting module holding an unfinished document; middle an evidence document with a magnifying glass; right a revised document with subtle highlighted revisions. Clear forward arrows left to middle and middle to right. A curved warm feedback arrow from middle back to left, labeled 修改意见. A thin curved return arrow from the revised document back to the verification area, labeled 再次检查. Differentiate directions clearly. No fictional software interfaces or decorative circuit/brain icons.
+Exact short Chinese labels next to the corresponding objects: AI 起草, 人工核实, 反馈修改, 修改意见, 再次检查. One small footer: 推荐协作方式. No other text, no huge headline.
+Personal identity reference: the provided character image. Preserve its dark brown swept hair silhouette, rounded rectangular glasses, face identity, dark short jacket/shirt, warm-gray trousers, cream shoes, compact chibi proportions. Do not copy the standing pose or background. Exactly one human character appears in the entire picture, ONLY at the middle verification stage; the left AI drafting module has no person, avatar or robot. Character participates in checking the evidence document with the magnifying glass at the middle, about 15% of image width; knowledge objects and relationships dominate, no oversized portrait. Current theme controls drawing medium, not identity.
+Make all Chinese labels crisp, not overlapping objects or arrows. Generous negative space; only meaningful objects; no room, plants, posters, logos or watermarks. One finished independent picture, not a screenshot or montage.
+Theme soft-3d: warm-white uncluttered background, muted blue-gray and cream objects, restrained warm-yellow feedback arrow, soft rounded matte 3D volumes, gentle contact shadows, clean and intelligible materials. Character follows the same smooth matte toy-like style, broad sculpted hair locks, no photographic pores or texture. Knowledge illustration similar to the Hardy approved soft 3D editorial body style.
+
+## 针对性修正：只保留核实节点的人物
+
+Edit the generated soft-3D diagram. Remove ONLY the extra person at the left AI drafting stage. Keep its laptop/document module, all Chinese labels, arrows, the warm white background and the rest of the illustration unchanged. Keep the single personal character at the middle human verification stage with the magnifying glass. Exactly one human character in the whole diagram. Preserve the soft matte editorial material and all directional meaning.
