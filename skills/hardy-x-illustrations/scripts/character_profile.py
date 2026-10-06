@@ -25,7 +25,7 @@ def digest(path):
 def load(root):
     p = root / 'profile.json'
     if not p.is_file():
-        raise ValueError('No personal character profile. Ask for one photo to initialize it.')
+        raise ValueError('No character profile. Offer the bundled Hardy IP or one photo to create a personal character.')
     result = json.loads(p.read_text(encoding='utf-8'))
     if result.get('schema_version') != 1 or result.get('active_theme') not in THEMES:
         raise ValueError('Unsupported character profile format or theme.')
