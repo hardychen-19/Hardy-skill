@@ -1,6 +1,6 @@
 # Hardy-skill
 
-Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力是独立的 Agent Skill，可单独安装，也可安装整个合集。当前版本 **0.5.1**。
+Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力是独立的 Agent Skill，可单独安装，也可安装整个合集。当前版本 **0.5.2**。
 
 ## 上传自己的照片，选一套配图画风
 
@@ -35,7 +35,7 @@ Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力
 | `skills/hardy-x-review/` | X Analytics 数据复盘，区分账号净涨粉与单帖归因关注 |
 | `skills/hardy-x-illustrations/` | 从个人照片建立角色，四套主题任选，按文章选择认知节点，生成正文解释图、保留真实截图并插入成稿，完整文章附文末关注图；暂不生成封面 |
 
-写作模块融合卡兹克的叙事推进、Miles 文风说明中的具体解释，以及宝玉的标题与编辑方法。当前默认表达参考 Roland.W：从具体困惑进入，用追问、明确判断和具体后果展开，保留作者原话与取舍。方法见[自然表达与作者在场](skills/hardy-x-writing/references/natural-expression.md)。文章类型改变结构，作者身份仍为 Hardy Chen。教程写到能操作和验证，故事带读者走过真实发现；不编造经历，不为了悬念修改数字，不强制口语词频或文化升华，也不承诺通过 AI 检测。该表达更新已进入本次 0.5.1 源码与下载包。
+写作模块采用叙事推进、具体解释与编辑自检。默认从具体困惑进入，用追问、明确判断和具体后果展开，保留作者原话与取舍。方法见[自然表达与作者在场](skills/hardy-x-writing/references/natural-expression.md)。文章类型改变结构，作者身份仍为 Hardy Chen。教程写到能操作和验证，故事带读者走过真实发现；不编造经历，不为了悬念修改数字，不强制口语词频或文化升华，也不承诺通过 AI 检测。该表达更新已进入本次 0.5.2 源码与下载包。
 
 这是指令型技能合集，效果依赖宿主模型、工具和素材。没有内置账号登录器、自动发布器、确定性写作引擎或通用工作流执行程序。模块协议可供宿主 Agent 编排，尚未验证完整发布链。
 
@@ -74,7 +74,7 @@ Hardy Chen 的模块化中文长文写作与 X 运营技能合集。每个能力
 
 ### Claude Code 插件合集
 
-参考 baoyu-skills 的单插件清单结构，仓库提供 `.claude-plugin/marketplace.json`，注册总入口和三个子技能：
+仓库提供 `.claude-plugin/marketplace.json`，注册总入口和三个子技能：
 
 ```text
 /plugin marketplace add hardychen-19/Hardy-skill
@@ -113,6 +113,6 @@ python3 scripts/package.py
 
 只使用 Python 标准库。打包脚本生成各模块独立 ZIP 和全集 ZIP；只收录配图模块明确列出的生成图（原有六张参考图、四张主题预览及照片生成角色示例）、档案辅助脚本和主题规则；不收录原始照片、其他用户素材、账号数据或工作区。全集包使用 `Hardy-skill-bundle-<版本>.zip`，总入口独立包使用 `hardy-skill-<版本>.zip`，避免大小写不敏感文件系统中的重名覆盖。安装包见 [GitHub Releases](https://github.com/hardychen-19/Hardy-skill/releases)。
 
-## 来源与许可
+## 许可
 
-合集采用 MIT。写作模块的参考来源、改编范围与上游版权见 [sources.md](skills/hardy-x-writing/references/sources.md) 和模块 LICENSE；来源署名不作为生成文章的作者身份。
+合集采用 MIT，完整许可证见仓库与各模块的 LICENSE。
