@@ -1,4 +1,4 @@
 interface:
-  display_name: "个人照片正文配图"
-  short_description: "上传照片建立并复用自己的角色，选择立体、手绘、水彩或深色画风为正文配图"
-  default_prompt: "使用 $hardy-x-illustrations，首次根据我上传的照片建立个人角色，已有就复用；按所选主题为这篇 Markdown 配图，保留原稿，交付图片与提示词。"
+  display_name: "个人角色正文配图"
+  short_description: "直接用 Hardy IP 或上传照片建立自己的角色，选择立体、手绘、水彩或深色画风配图"
+  default_prompt: "使用 $hardy-x-illustrations，首次未指定角色时提示我选择 Hardy IP 或上传自己的照片，已有角色就复用；按所选主题为这篇 Markdown 配图，保留原稿，交付图片与提示词。"
